@@ -52,7 +52,7 @@ public class HanwintechSpringBootApplication extends SpringBootServletInitialize
 
 //	private static final Logger logger = LoggerFactory.getLogger(HanwintechSpringBootApplication.class);
 	/**
-	 * 作用与在web.xml中配置负责初始化Spring应用上下文的监听器作用类似
+	 * 作用与在web.xml中配置负责初始化Spring应用上下文的监听器作用类似房冯杨
 	 */
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
