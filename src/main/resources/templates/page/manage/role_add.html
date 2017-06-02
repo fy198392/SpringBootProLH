@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>权限添加</title>
+
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+
+<link
+	th:href="|${#httpServletRequest.contextPath }/static/css/bootstrap.min.css|"
+	rel="stylesheet" />
+<link
+	th:href="|${#httpServletRequest.contextPath }/static/css/bootstrap-responsive.min.css|"
+	rel="stylesheet" />
+
+<link
+	th:href="|${#httpServletRequest.contextPath }/static/google/font.css?family=Open+Sans:400italic,600italic,400,600|"
+	rel="stylesheet" type="text/css" />
+<link
+	th:href="|${#httpServletRequest.contextPath }/static/css/font-awesome.css|"
+	rel="stylesheet" />
+
+<link
+	th:href="|${#httpServletRequest.contextPath }/static/css/style.css|"
+	rel="stylesheet" />
+<link rel="stylesheet"
+	th:href="|${#httpServletRequest.contextPath }/static/css/jquery-labelauty.css|" />
+
+<link
+	th:href="|${#httpServletRequest.contextPath }/static/css/pages/faq.css|"
+	rel="stylesheet" />
+<link
+	th:href="|${#httpServletRequest.contextPath }/static/css/hanwin.css|"
+	rel="stylesheet" />
+<!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+      <script th:src="|${#httpServletRequest.contextPath }/static/js/html5.js|"></script>
+    <![endif]-->
+<link rel="icon" type="image/x-icon"
+	th:href="@{/img/message_avatar2.png}" />
+
+</head>
+
+<body>
+
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+
+				<a class="btn btn-navbar" data-toggle="collapse"
+					data-target=".nav-collapse"> <span class="icon-bar"></span> <span
+					class="icon-bar"></span> <span class="icon-bar"></span>
+				</a> <a class="brand" href="index.html"> Bootstrap Admin Template </a>
+
+				<div class="nav-collapse">
+					<ul class="nav pull-right">
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown"> <i class="icon-cog"></i> Account <b
+								class="caret"></b>
+						</a>
+
+							<ul class="dropdown-menu">
+								<li><a href="javascript:;">Settings</a></li>
+								<li><a href="javascript:;">Help</a></li>
+							</ul></li>
+
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown"> <i class="icon-user"></i>
+								EGrappler.com <b class="caret"></b>
+						</a>
+
+							<ul class="dropdown-menu">
+								<li><a href="javascript:;">Profile</a></li>
+								<li><a href="javascript:;">Logout</a></li>
+							</ul></li>
+					</ul>
+
+					<form class="navbar-search pull-right">
+						<input type="text" class="search-query" placeholder="Search" />
+					</form>
+
+				</div>
+				<!--/.nav-collapse -->
+
+			</div>
+			<!-- /container -->
+
+		</div>
+		<!-- /navbar-inner -->
+
+	</div>
+	<!-- /navbar -->
+
+
+
+
+
+	<div class="subnavbar">
+
+		<div class="subnavbar-inner">
+
+			<div class="container">
+
+				<ul class="mainnav">
+
+					<li><a href="index.html"> <i class="icon-dashboard"></i> <span>Dashboard</span>
+					</a></li>
+
+
+
+					<li><a href="reports.html"> <i class="icon-list-alt"></i>
+							<span>Reports</span>
+					</a></li>
+
+					<li><a href="guidely.html"> <i class="icon-facetime-video"></i>
+							<span>App Tour</span>
+					</a></li>
+
+
+					<li><a href="charts.html"> <i class="icon-bar-chart"></i>
+							<span>Charts</span>
+					</a></li>
+
+
+					<li><a href="shortcodes.html"> <i class="icon-code"></i> <span>Shortcodes</span>
+					</a></li>
+
+					<li class="active dropdown"><a href="javascript:;"
+						class="dropdown-toggle" data-toggle="dropdown"> <i
+							class="icon-long-arrow-down"></i> <span>Drops</span> <b
+							class="caret"></b>
+					</a>
+
+						<ul class="dropdown-menu">
+							<li><a href="icons.html">Icons</a></li>
+							<li><a href="faq.html">FAQ</a></li>
+							<li><a href="pricing.html">Pricing Plans</a></li>
+							<li><a href="login.html">Login</a></li>
+							<li><a href="signup.html">Signup</a></li>
+							<li><a href="error.html">404</a></li>
+						</ul></li>
+
+				</ul>
+
+			</div>
+			<!-- /container -->
+
+		</div>
+		<!-- /subnavbar-inner -->
+
+	</div>
+	<!-- /subnavbar -->
+
+
+	<div class="main">
+
+		<div class="main-inner">
+
+			<div class="container">
+				<div class="row all-icons">
+					<div class="widget">
+						<div class="widget-header">
+							<i class="icon-bar-chart"></i>
+							<h3>权限添加</h3>
+						</div>
+						<!-- /widget-header -->
+						<div class="widget-content">
+							<div class="tab-pane" id="formcontrols">
+								<form id="edit-profile" class="form-horizontal"
+									th:action="@{/manage/role_addContent}" method="post"
+									onsubmit="return toVaild()">
+									<fieldset>
+										<div class="control-group">
+											<label class="control-label" for="roleName">权限名称</label>
+											<div class="controls">
+												<input type="text" class="span6" id="roleName"
+													name="roleName" value="" />
+												<p class="help-block">Your username is for logging in
+													and cannot be changed.</p>
+											</div>
+											<!-- /controls -->
+										</div>
+										<!-- /control-group -->
+										<div class="control-group">
+											<label class="control-label">状态</label>
+											<div class="controls">
+												<ul class="dowebok cr">
+													<li class="lir"><input type="radio" name="state"
+														value="1" data-labelauty="启用" th:checked="true" /></li>
+													<li class="lir"><input type="radio" name="state"
+														value="0" data-labelauty="停用" /></li>
+												</ul>
+											</div>
+											<!-- /controls -->
+										</div>
+										<!-- /control-group -->
+										<div class="control-group">
+											<label class="control-label" for="radiobtns">权限选择 </label>
+											<div class="controls"
+												th:if="${not #lists.isEmpty(modelList)}">
+												<ul class="dowebok cr"
+													th:each="model,modelStat:${modelList}">
+													<li class="lir"><input type="checkbox"
+														th:name="|model[${modelStat.index}].model_Name|"
+														th:attr="data-labelauty=${model.model_Name}"
+														th:value="${model.model_Name}" onclick="choose(this)" /></li>
+													<input th:name="|model[${modelStat.index}].id|"
+														th:value="${model.id}" type="hidden" />
+													<input th:name="|model[${modelStat.index}].key|"
+														th:value="${model.key}" type="hidden" />
+													<li class="lir"
+														th:classappend="${model.view!=1?'':'menuname_one'}"
+														th:if="${#lists.isEmpty(model) or #lists.isEmpty(model.children)} and ${model.view==1}"><input
+														type="checkbox"
+														th:name="|model[${modelStat.index}].${model.view!=1?'':'view'}|"
+														value="1"
+														th:attr="data-labelauty=${model.view!=1?'':'查看'}"
+														onclick="choose(this)" /></li>
+													<li class="lir"
+														th:classappend="${model.view!=1?(model.edit==1?'menuname_one':''):''}"
+														th:if="${#lists.isEmpty(model) or #lists.isEmpty(model.children)} and ${model.edit==1}"><input
+														type="checkbox"
+														th:name="|model[${modelStat.index}].${model.edit!=1?'':'edit'}|"
+														value="1"
+														th:attr="data-labelauty=${model.edit==1?'编辑':''}"
+														onclick="choose(this)" /></li>
+													<li class="lir"
+														th:classappend="${model.view!=1?(model.edit!=1?(model.add==1?'menuname_one':''):''):''}"
+														th:if="${#lists.isEmpty(model) or #lists.isEmpty(model.children)} and  ${model.add==1}"><input
+														type="checkbox"
+														th:name="|model[${modelStat.index}].${model.add!=1?'':'add'}|"
+														value="1" th:attr="data-labelauty=${model.add==1?'添加':''}"
+														onclick="choose(this)" /></li>
+													<li class="lir"
+														th:classappend="${model.view!=1?(model.edit!=1?(model.add!=1?(model.del==1?'menuname_one':''):''):''):''}"
+														th:if="${#lists.isEmpty(model) or #lists.isEmpty(model.children)} and ${model.del==1}"><input
+														type="checkbox"
+														th:name="|model[${modelStat.index}].${model.del!=1?'':'del'}|"
+														value="1" th:attr="data-labelauty=${model.del==1?'删除':''}"
+														onclick="choose(this)" /></li>
+													<li class="lir"
+														th:classappend="${model.view!=1?(model.edit!=1?(model.add!=1?(model.del!=1?(model.print!=1?'menuname_one':''):''):''):''):''}"
+														th:if="${#lists.isEmpty(model) or #lists.isEmpty(model.children)} and ${model.print==1}"><input
+														type="checkbox"
+														th:name="|model[${modelStat.index}].${model.print!=1?'':'print'}|"
+														value="1"
+														th:attr="data-labelauty=${model.print==1?'打印':''}"
+														onclick="choose(this)" /></li>
+													<br />
+													<div
+														th:if="${not #lists.isEmpty(model) and not #lists.isEmpty(model.children)}">
+														<div th:each="modelchild,modelchildStat:${model.children}">
+															<li class="lir menuname_one "><input type="checkbox"
+																th:name="|model[${modelStat.index}].children[${modelchildStat.index}].model_Name|"
+																th:attr="data-labelauty=${modelchild.model_Name}"
+																th:value="${modelchild.model_Name}"
+																onclick="choose(this)" /></li> <input
+																th:name="|model[${modelStat.index}].children[${modelchildStat.index}].id|"
+																th:value="${modelchild.id}" type="hidden" /> <input
+																th:name="|model[${modelStat.index}].children[${modelchildStat.index}].key|"
+																th:value="${modelchild.key}" type="hidden" />
+															<li class="lir"
+																th:classappend="${modelchild.view!=1?'':'menuname_one'}"
+																th:if="${#lists.isEmpty(modelchild) or #lists.isEmpty(modelchild.children)} and ${modelchild.view==1}"><input
+																type="checkbox"
+																th:name="|model[${modelStat.index}].children[${modelchildStat.index}].${modelchild.view!=1?'':'view'}|"
+																th:attr="data-labelauty=${modelchild.view!=1?'':'查看'}"
+																value="1" onclick="choose(this)" /></li>
+															<li class="lir"
+																th:classappend="${modelchild.view!=1?(modelchild.edit==1?'menuname_one':''):''}"
+																th:if="${#lists.isEmpty(modelchild) or #lists.isEmpty(modelchild.children)} and ${modelchild.edit==1}"><input
+																type="checkbox"
+																th:name="|model[${modelStat.index}].children[${modelchildStat.index}].${modelchild.edit!=1?'':'edit'}|"
+																th:attr="data-labelauty=${modelchild.edit==1?'编辑':''}"
+																value="1" onclick="choose(this)" /></li>
+															<li class="lir"
+																th:classappend="${modelchild.view!=1?(modelchild.edit!=1?(modelchild.add==1?'menuname_one':''):''):''}"
+																th:if="${#lists.isEmpty(modelchild) or #lists.isEmpty(modelchild.children)} and  ${modelchild.add==1}"><input
+																type="checkbox"
+																th:name="|model[${modelStat.index}].children[${modelchildStat.index}].${modelchild.add!=1?'':'add'}|"
+																th:attr="data-labelauty=${modelchild.add==1?'添加':''}"
+																value="1" onclick="choose(this)" /></li>
+															<li class="lir"
+																th:classappend="${modelchild.view!=1?(modelchild.edit!=1?(modelchild.add!=1?(modelchild.del==1?'menuname_one':''):''):''):''}"
+																th:if="${#lists.isEmpty(modelchild) or #lists.isEmpty(modelchild.children)} and ${modelchild.del==1}"><input
+																type="checkbox"
+																th:name="|model[${modelStat.index}].children[${modelchildStat.index}].${modelchild.del!=1?'':'del'}|"
+																th:attr="data-labelauty=${modelchild.del==1?'删除':''}"
+																value="1" onclick="choose(this)" /></li>
+															<li class="lir"
+																th:classappend="${modelchild.view!=1?(modelchild.edit!=1?(modelchild.add!=1?(modelchild.del!=1?(modelchild.print!=1?'menuname_one':''):''):''):''):''}"
+																th:if="${#lists.isEmpty(modelchild) or #lists.isEmpty(modelchild.children)} and ${modelchild.print==1}"><input
+																type="checkbox"
+																th:name="|model[${modelStat.index}].children[${modelchildStat.index}].${modelchild.print!=1?'':'print'}|"
+																th:attr="data-labelauty=${modelchild.print==1?'打印':''}"
+																value="1" onclick="choose(this)" /></li>
+														</div>
+													</div>
+												</ul>
+												<!-- <div th:include="/page/manage/NewFile :: #copy-section"></div> -->
+
+											</div>
+											<!-- /controls -->
+										</div>
+										<!-- /control-group -->
+										<div class="form-actions">
+											<button type="submit" class="btn btn-primary">保存</button>
+											<button type="button" class="btn" th:onclick="|redirect('@{/manage/role}');|">返回</button>
+										</div>
+										<!-- /form-actions -->
+									</fieldset>
+								</form>
+							</div>
+
+						</div>
+					</div>
+
+
+				</div>
+				<!-- /row -->
+
+			</div>
+			<!-- /container -->
+
+		</div>
+		<!-- /main-inner -->
+
+	</div>
+	<!-- /main -->
+
+
+
+	<div class="extra">
+
+		<div class="extra-inner">
+
+			<div class="container">
+				<div class="row">
+					<div class="span3">
+						<h4>About Free Admin Template</h4>
+						<ul>
+							<li><a href="javascript:;">EGrappler.com</a></li>
+							<li><a href="javascript:;">Web Development Resources</a></li>
+							<li><a href="javascript:;">Responsive HTML5 Portfolio
+									Templates</a></li>
+							<li><a href="javascript:;">Free Resources and Scripts</a></li>
+						</ul>
+					</div>
+					<!-- /span3 -->
+					<div class="span3">
+						<h4>Support</h4>
+						<ul>
+							<li><a href="javascript:;">Frequently Asked Questions</a></li>
+							<li><a href="javascript:;">Ask a Question</a></li>
+							<li><a href="javascript:;">Video Tutorial</a></li>
+							<li><a href="javascript:;">Feedback</a></li>
+						</ul>
+					</div>
+					<!-- /span3 -->
+					<div class="span3">
+						<h4>Something Legal</h4>
+						<ul>
+							<li><a href="javascript:;">Read License</a></li>
+							<li><a href="javascript:;">Terms of Use</a></li>
+							<li><a href="javascript:;">Privacy Policy</a></li>
+						</ul>
+					</div>
+					<!-- /span3 -->
+					<div class="span3">
+						<h4>Open Source jQuery Plugins</h4>
+						<ul>
+							<li><a href="http://www.egrappler.com">Open Source
+									jQuery Plugins</a></li>
+							<li><a href="http://www.egrappler.com;">HTML5 Responsive
+									Tempaltes</a></li>
+							<li><a href="http://www.egrappler.com;">Free Contact
+									Form Plugin</a></li>
+							<li><a href="http://www.egrappler.com;">Flat UI PSD</a></li>
+						</ul>
+					</div>
+					<!-- /span3 -->
+				</div>
+				<!-- /row -->
+
+			</div>
+			<!-- /container -->
+
+		</div>
+		<!-- /extra-inner -->
+
+	</div>
+	<!-- /extra -->
+
+
+
+
+	<div class="footer">
+
+		<div class="footer-inner">
+
+			<div class="container">
+
+				<div class="row">
+
+					<div class="span12">
+						&copy; 2013 <a href="http://www.egrappler.com/">Bootstrap
+							Responsive Admin Template</a>.
+					</div>
+					<!-- /span12 -->
+
+				</div>
+				<!-- /row -->
+
+			</div>
+			<!-- /container -->
+
+		</div>
+		<!-- /footer-inner -->
+
+	</div>
+	<!-- /footer -->
+
+
+	<!-- Le javascript
+================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script
+		th:src="|${#httpServletRequest.contextPath }/static/js/jquery-1.7.2.min.js|"></script>
+
+	<script
+		th:src="|${#httpServletRequest.contextPath }/static/js/bootstrap.js|"></script>
+	<script
+		th:src="|${#httpServletRequest.contextPath }/static/js/base.js|"></script>
+	<script
+		th:src="|${#httpServletRequest.contextPath }/static/js/jquery-labelauty.js|"></script>
+	<script
+		th:src="|${#httpServletRequest.contextPath }/static/js/common.js|"></script>
+	<script type="text/javascript" th:inline="javascript">
+		/*<![CDATA[*/
+		$(function() {
+			$(':input').labelauty();
+		});
+		function toVaild() {
+			$("input[type='hidden']").each(function() {
+				if (!$(this).prevAll().find(':checkbox').is(":checked")) {
+					$(this).remove();
+				}
+			});
+			return true;
+		}
+		function choose(obj) {
+			if ($(obj).attr("name").indexOf("children") != -1
+					|| $(obj).attr("name").length <= 14) {
+				if ($(obj).is(":checked")) {
+					var Parentname = $(obj).attr("name").substr(0, 20);
+					$("input[name='" + Parentname + ".model_Name" + "']").attr(
+							'checked', true);
+					var Grandname = $(obj).attr("name").substr(0, 8);
+					$("input[name='" + Grandname + ".model_Name" + "']").attr(
+							'checked', true);
+				}
+			}
+			if ($(obj).attr("name").indexOf("model_Name") != -1) {
+				if ($(obj).is(":checked")) {
+					if ($(obj).attr("name").indexOf("children") != -1) {
+						var name = $(obj).attr("name").substr(0, 20);
+						$("input[name^='" + name + "']").attr('checked', true);
+					} else {
+						var name = $(obj).attr("name").substr(0, 8);
+						$("input[name^='" + name + "']").attr('checked', true);
+					}
+				} else {
+					if ($(obj).attr("name").indexOf("children") != -1) {
+						var name = $(obj).attr("name").substr(0, 20);
+						$("input[name^='" + name + "']").attr('checked', false);
+					} else {
+						var name = $(obj).attr("name").substr(0, 8);
+						$("input[name^='" + name + "']").attr('checked', false);
+					}
+				}
+			}
+		}
+		/*]]>*/
+	</script>
+</body>
+
+</html>
